@@ -1,0 +1,35 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+
+      - name: Build with Makefile
+        run: make
+
+      - name: Archive each built file
+        run: |
+          for f in rndua-*; do
+            tar -czvf "${f}.tar.gz" "$f"
+          done
+
+      - name: Upload archives to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: rndua-*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}

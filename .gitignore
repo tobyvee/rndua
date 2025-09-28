@@ -1,0 +1,29 @@
+# Binary output
+rndua-*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# Make outputs
+/build/
+*.o
+*.out
+*.exe
+
+# Node modules (if applicable)
+node_modules/
+
+# Go build outputs
+*.test
+*.coverprofile
+
+# Misc
+.env
