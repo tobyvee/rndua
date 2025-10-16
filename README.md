@@ -8,7 +8,16 @@
 - Cross-compilation support for Linux, macOS (Darwin), and Windows
 - Builds for both amd64 and arm64 architectures
 
-## Building
+## Installing
+
+### Homebrew
+
+```bash
+brew tap tobyvee/tap
+brew install rndua
+```
+
+### From source
 
 To build all binaries for supported platforms, run:
 
